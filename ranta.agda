@@ -23,13 +23,13 @@ data _●_ (A B : Set) : Set where
 ●ER (●I a b) = b
 
 -- Define sum types as a generalization of the cartesian product.
-data Σ (A B : Set) (f : A → B) (x : A) : Set where
-  ΣI : A → (A → B) → Σ A B f x
+data Σ (A : Set) {B : Set} (f : A → B) (x : A) : Set where
+  ΣI : A → (A → B) → Σ A f x
 
-ΣEL : {A B : Set} → {f : A → B} → {x : A} → (Σ A B f x) → A
+ΣEL : {A B : Set} → {f : A → B} → {x : A} → (Σ A f x) → A
 ΣEL (ΣI x f) = x
 
-ΣER : {A B : Set} → {f : A → B} → {x : A} → (Σ A B f x) → B
+ΣER : {A B : Set} → {f : A → B} → {x : A} → (Σ A f x) → B
 ΣER (ΣI x f) = f(x)
 
 --Recover 
