@@ -29,7 +29,7 @@ data Σ (A : Set) (B : A → Set) : Set where
 ΣEL : {A : Set} → {B : A → Set} → (Σ A B) → A
 ΣEL (ΣI a B) = a
 
-ΣER : {A : Set} → {B : A → Set} → (Σ A B) → Set
-ΣER (ΣI a B) = B a
+ΣER : {A : Set} → {B : A → Set} → (p : Σ A B) → B (ΣEL p)
+ΣER (ΣI a B) = B
 
 --Recover 
