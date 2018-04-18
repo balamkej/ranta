@@ -26,10 +26,10 @@ data _●_ (A B : Set) : Set where
 data Σ (A : Set) (B : A → Set) : Set where
   ΣI : (a : A) → B a → Σ A B
 
---ΣEL : {A : Set} → {B : A → Set} → (Σ A B) → A
---ΣEL (ΣI x B) = x
+ΣEL : {A : Set} → {B : A → Set} → (Σ A B) → A
+ΣEL (ΣI a B) = a
 
---ΣER : {A : Set} → {B : A → Set} → (Σ A B) → B
---ΣER (ΣI x B) = B(x)
+ΣER : {A : Set} → {B : A → Set} → (Σ A B) → Set
+ΣER (ΣI a B) = B a
 
 --Recover 
