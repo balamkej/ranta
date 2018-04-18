@@ -24,23 +24,13 @@ data _●_ (A B : Set) : Set where
 
 -- Define sum types as a generalization of the cartesian product.
 data Σ (A : Set) (B : A → Set) : Set where
-  ΣI : (a : A) → B a → Σ A B
+  ΣI : (a : A) → (b : B a) → Σ A B
 
 ΣEL : {A : Set} → {B : A → Set} → (Σ A B) → A
-ΣEL (ΣI a B) = a
+ΣEL (ΣI a b) = a
 
 ΣER : {A : Set} → {B : A → Set} → (p : Σ A B) → B (ΣEL p)
-ΣER (ΣI a B) = B
-
-
-data Σ′ (A : Set) (B : A → Set) : Set where
-  ΣI′ : (a : A) → (b : B a) → Σ′ A B
-
-ΣEL′ : {A : Set} → {B : A → Set} → (Σ′ A B) → A
-ΣEL′ (ΣI′ a b) = a
-
-ΣER′ : {A : Set} → {B : A → Set} → (p : Σ′ A B) → B (ΣEL′ p)
-ΣER′ (ΣI′ a b) = b
+ΣER (ΣI a b) = b
 
 
 
