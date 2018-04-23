@@ -35,4 +35,9 @@ data Σ (A : Set) (B : A → Set) : Set where
 
 --Just as Σ-types are a generalization of conjunction corresponding to existential quantification, product types (Π-types) generalize implication and correspond to universal quantification.
 
+data _⊃_ (A : Set) (B : Set) : Set where
+  ⊃I : A → B → A ⊃ B
+
+data Π (A : Set) (B : A → Set) : Set where
+  ΠI : (a : A) → (b : B a) → Π A B
 
