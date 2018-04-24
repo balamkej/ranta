@@ -38,6 +38,9 @@ data Σ (A : Set) (B : A → Set) : Set where
 data _⊃_ (A : Set) (B : Set) : Set where
   ⊃I : A → B → A ⊃ B
 
+⊃E : {A B : Set} → (A ⊃ B) → A → B
+⊃E (⊃I a b) a′ = b
+
 data Π (A : Set) (B : A → Set) : Set where
   ΠI : (a : A) → (b : B a) → Π A B
 
