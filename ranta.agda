@@ -30,7 +30,7 @@ data Σ (A : Set) (B : A → Set) : Set where
 ΣEL : {A : Set} → {B : A → Set} → (Σ A B) → A
 ΣEL (ΣI a b) = a
 
-ΣER : {A : Set} → {B : A → Set} → (p : Σ A B) → B (ΣEL p)
+ΣER : {A : Set} → {B : A → Set} → (c : Σ A B) → B (ΣEL c)
 ΣER (ΣI a b) = b
 
 --Just as Σ-types are a generalization of conjunction corresponding to existential quantification, product types (Π-types) generalize implication and correspond to universal quantification.
@@ -38,9 +38,15 @@ data Σ (A : Set) (B : A → Set) : Set where
 data _⊃_ (A : Set) (B : Set) : Set where
   ⊃I : A → B → A ⊃ B
 
+--Implication is just function application, though not the exciting case. Given a b, we can form the function λxₐ.b, which for any a returns b.
+
 ⊃E : {A B : Set} → (A ⊃ B) → A → B
 ⊃E (⊃I x b) a = b
 
-data Π (A : Set) (B : A → Set) : Set where
-  ΠI : (a : A) → (b : B a) → Π A B
+--Product types give non-vacuous lambda abstraction. Π-type elements are functions that for any 'a' provide something of type (B a)--e.g., λxₐ.b(x)
 
+data Π (A : Set) (B : A → Set) : Set where
+  ΠI : ((a : A) → B a) → Π A B
+
+ΠE : {A : Set} → {B : A → Set} → (Π A B) → (a : A) → B a
+ΠE (ΠI b) a = b a
