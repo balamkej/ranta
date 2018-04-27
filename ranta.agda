@@ -51,7 +51,7 @@ data Π (A : Set) (B : A → Set) : Set where
 ΠE : {A : Set} → {B : A → Set} → (Π A B) → (a : A) → B a
 ΠE (ΠI b) a = b a
 
---Disjunction cashes out the idea that a function is defined on A+B just in case it can be defined separately on both A and B.
+--Disjunction cashes out the idea that a function is defined on A ∨ B just in case it can be defined separately on both A and B. That is, given functions from A → C and B → C, we can take an element of A ∨ B to C by using the appropriate function.
 
 data _∨_ (A : Set) (B : Set) : Set where
   ∨IL : (a : A) → A ∨ B
