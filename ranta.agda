@@ -38,7 +38,7 @@ data Σ (A : Set) (B : A → Set) : Set where
 data _⊃_ (A : Set) (B : Set) : Set where
   ⊃I : A → B → A ⊃ B
 
---Implication is just function application, though not the exciting case. Given a b, we can form the function λxₐ.b, which for any a returns b.
+--Implication is just function application, though not the exciting case. Given a 'b', we can form the function λxₐ.b, which for any 'a' returns 'b'.
 
 ⊃E : {A B : Set} → (A ⊃ B) → A → B
 ⊃E (⊃I x b) a = b
@@ -50,3 +50,9 @@ data Π (A : Set) (B : A → Set) : Set where
 
 ΠE : {A : Set} → {B : A → Set} → (Π A B) → (a : A) → B a
 ΠE (ΠI b) a = b a
+
+--Disjunction cashes out the idea that a function is defined on A+B just in case it can be defined separately on both A and B.
+
+data _+_ (A : Set) (B : Set) : Set where
+  +IL : (a : A) → A + B
+  +IR : (b : B) → A + B
