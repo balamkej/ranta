@@ -60,3 +60,10 @@ data _∨_ (A : Set) (B : Set) : Set where
 ∨E : {A B C : Set} → (A → C) → (B → C) → (A ∨ B) → C
 ∨E Ac Bc (∨IL a) = Ac a
 ∨E Ac Bc (∨IR b) = Bc b
+
+--Define negation through absurdity.
+
+data ∅ : Set where
+  ⊥ : ∅
+
+∅E : (c : ∅) → 
