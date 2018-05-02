@@ -61,7 +61,7 @@ data _∨_ (A : Set) (B : Set) : Set where
 ∨E Ac Bc (∨IL a) = Ac a
 ∨E Ac Bc (∨IR b) = Bc b
 
---Define negation through absurdity.
+--Define negation through absurdity. Note that the empty type has no introduction rule...cute.
 
 data ∅ : Set where
 
