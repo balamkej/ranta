@@ -64,6 +64,6 @@ data _∨_ (A : Set) (B : Set) : Set where
 --Define negation through absurdity.
 
 data ∅ : Set where
-  ⊥ : ∅
 
-∅E : (c : ∅) → 
+∼ : (A : Set) → Set
+∼ A = A ⊃ ∅
